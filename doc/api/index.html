@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="made with love by dartdoc 0.9.14-dev">
+  <meta name="description" content="dartd3tooltips API docs, for the Dart programming language.">
+  <title>dartd3tooltips - Dart API docs</title>
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
+  <link rel="stylesheet" href="static-assets/prettify.css">
+  <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+  <!-- Do not remove placeholder -->
+  <!-- Header Placeholder -->
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header class="container-fluid" id="title">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 contents">
+          <ol class="breadcrumbs gt-separated hidden-xs">
+            <li class="self-crumb">dartd3tooltips</li>
+          </ol>
+          <div class="self-name">dartd3tooltips</div>
+          <form class="search navbar-right" role="search">
+            <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+          </form>
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+  </nav>
+
+  <div class="container masthead">
+    <div class="row">
+      <div class="col-sm-12 contents">
+        <ol class="breadcrumbs gt-separated visible-xs">
+        </ol>
+        <div class="title-description">
+          <h1 class="title">
+            <span class="kind">package</span> dartd3tooltips
+          </h1>
+        </div>
+        <ul class="subnav">
+          <li><a href="index.html#libraries">Libraries</a></li>
+        </ul>
+      </div> <!-- /col -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+
+</header>
+
+<div class="container body">
+  <div class="row">
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>dartd3tooltips</h5>
+
+
+    <ol>
+      <li class="section-title"><a href="index.html#libraries">Libraries</a></li>
+      <li><a href="D3Tooltip/D3Tooltip-library.html">D3Tooltip</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <section class="desc markdown">
+        <h1>Dart D3 Tooltips</h1>
+<h2>Tooltips for D3 under Dart.</h2>
+<h3>Author: Rick Berger, Aphorica, Inc (<a href="mailto:rickb@aphorica.com">rickb@aphorica.com</a>)</h3>
+<h2>A tooltip facility for D3 under Dart.</h2>
+<h2>Features</h2><ul><li>Uses SVG nodes (rect, path, text).</li><li>Tip balloon sizes dynamically to text.</li><li>Delay before showing tip (settable).</li><li>Tip duration is settable.</li><li>Offset is settable.  If non-zero, a pointer is generated to
+bottom left of tip rect.  If zero, no pointer and bottom left
+corner of tip is set to entry point.</li></ul>
+<h2>To Use:</h2><ul><li>
+<p><span style="color:red"><strong>Dart D3 Issue:</strong>  The Dart D3 repository is not
+in sync with the <em>github</em> version.  This won't work with the D3 repo
+from dartlang -- you need to download/clone the github version from here:</span></p>
+<blockquote>
+<p><a href="https://github.com/rwl/d3.dart">https://github.com/rwl/d3.dart</a></p></blockquote>
+<p><span style="color:red">Change your 'pubspec.yaml' to point to the 
+cloned version.  See the 'd3' entry in the local 'pubspec.yaml' file
+to see how to do this.</span></p></li><li>
+<p>Somewhere, instantiate a D3Tooltip object, passing it the root
+svg canvas and any other settings for the tips themselves.  See the
+constructor documentation for settings.  Best to do it after all
+your other items are created to avoid Z order issues.</p></li><li>
+<p>For nodes that you want to respond to tooltips:</p><ul><li>Add a 'desc' attribute to the node (<code>.attr['desc'] = 'some text'</code>)</li><li>Register the node(s) with the tooltip Facility.</li></ul></li></ul>
+<h2>Implementation notes</h2><ul><li>
+<p>The included demo project shows three circles, entering any circle
+will trigger the tip after a 1 second (default) delay.</p></li><li>
+<p>The point of the tip is determined at the point the selection element
+boundary is entered.  If you move fast, that may be the interior of the
+element rather than the edge.</p></li><li>
+<p>Currently, the tip is positioned only to the upper right of the
+entry point.</p></li><li>
+<p>Currently, the rect and text are positioned explicitly.  This is
+intentional, to allow for future flipping and repositioning at the
+edges without transforms affecting the text.  I'll likely come up with a better
+solution when I look into addressing that (see the 'TODOS' below.)</p></li><li>
+<p>Vertical centering of text is kind of a bugaboo in svg, hence the 'dy'
+parameter is exposed in the constructor.  If you set the text size
+in a passed in class and the text isn't centered vertically, fiddle with the
+'dy' parameter until it centers.</p></li></ul>
+<h2>TODOS</h2><ul><li>
+<p>Add fade-in, fade-out anims.</p></li><li>
+<p>Sense if the rect is outside the svg boundary on the top or right
+and reposition.</p></li><li>
+<p>Maybe add different kind of pointers if vertical or horizontal only
+offset specified?</p></li></ul>
+      </section>
+      
+
+      <section class="summary" id="libraries">
+        <h2>Libraries</h2>
+        <dl>
+            <dt id="D3Tooltip">
+              <span class="name"><a href="D3Tooltip/D3Tooltip-library.html">D3Tooltip</a></span>
+            </dt>
+            <dd>
+              <p>Dart D3 Tooltips facility.  Provides tooltips for D3 selection items
+in Dart</p>
+            </dd>
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+
+  </div><!--/.sidebar-offcanvas-right-->
+
+</div> <!-- row -->
+</div> <!-- container -->
+
+<footer>
+  <div class="container-fluid">
+    <div class="container">
+      <p class="text-center">
+        <span class="no-break">
+          dartd3tooltips 0.1.0
+        </span>
+        &bull;
+        <span class="no-break">
+          <a href="https://www.dartlang.org">
+            <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
+          </a>
+        </span>
+        &bull;
+        <span class="copyright no-break">
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/prettify.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+<!-- Do not remove placeholder -->
+<!-- Footer Placeholder -->
+
+</body>
+
+</html>
