@@ -2,7 +2,7 @@
 
 ## Tooltips for D3 under Dart.
 
-### Author: Rick Berger, Aphorica, Inc ([rickb@aphorica.com](mailto:rickb@aphorica.com))
+### Author: Rick Berger, Aphorica, Inc ([rickb@aphorica.com](gbergeraph@gmail.com))
 
 A tooltip facility for D3 under Dart.
 ---
